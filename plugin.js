@@ -6,7 +6,29 @@
 */
 /**
  * InitEditableContents
- * The plugin will automatically prefill editables with values
+ * 
+ * On standard behaviour the plugin will automatically prefill empty editables with <p>-tags.
+ * You can specify your on regular expressions and replacements for each editalbe to tackle
+ * more sophisticated replacements, like replacing all occurences of "Aloha" by "Aloha-Editor"
+ * (well, ok, this is not tooo challenging either...)
+ * 
+ * Example configuration:
+ * 
+ * GENTICS.Aloha.settings = {
+ *		"com.gentics.aloha.plugins.InitEditableContents": {
+ *			config : {
+ *				// these are the default settings for this plugin 
+ *				regex : /^\s*$/, // regular expression to be matched
+ *				replace : "<p>&nbsp;</p>" // replacement to be made 
+ *			},
+ *			editables : {
+ *				'#content' : {
+ *					// editables that match the #content selector will be prefilled with some text if empty
+ *					replace : "<p>Write your content here</p>"
+ *				}
+ *			}
+ *		}
+ * };
  */
 GENTICS.Aloha.InitEditableContents = new GENTICS.Aloha.Plugin('com.gentics.aloha.plugins.InitEditableContents');
 
